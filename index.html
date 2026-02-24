@@ -35,6 +35,41 @@ header h1 {
   font-size:20px;
 }
 
+.hero {
+  position: relative;
+  height: 85vh;
+  background: url("assets/hero.jpeg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  padding: 20px;
+}
+
+.btn-primary {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 24px;
+  background: white;
+  color: #111;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
 .nav-btn {
   padding:12px 22px;
   background:white;
@@ -211,19 +246,12 @@ footer {
 </header>
 
 <section class="hero">
-  <video autoplay muted loop playsinline>
-    <source src="assets/hero.mp4" type="video/mp4">
-  </video>
-  <div class="overlay"></div>
-
-  <div class="hero-content">
-    <h2>Utah Real Estate. Decoded.</h2>
-    <p>
-      Data-driven relocation guidance, market insights, and smarter decisions
-      for professionals and families moving to Utah.
-    </p>
-    <a href="#guides" class="primary-btn">Schedule Strategy Call</a>
-  </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>Relocate to Utah With Data, Not Guesswork</h1>
+      <p>Structured relocation insights across Silicon Slopes, Salt Lake County, and surrounding cities.</p>
+      <a href="#contact" class="btn-primary">Schedule a Utah Relocation Strategy Call</a>
+    </div>
 </section>
 
 <section class="section">
