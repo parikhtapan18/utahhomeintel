@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Utah Relocation Decision Scorecard (2026)</title>
+
+<style>
+body{
+  font-family: Inter, system-ui, -apple-system, sans-serif;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  line-height: 1.7;
+  color: #111827;
+  background: #ffffff;
+}
+
+h1{ font-size: 38px; margin-bottom: 10px; }
+h2{ margin-top: 40px; }
+p{ margin-bottom: 18px; }
+
+.section{
+  background:#f9fafb;
+  padding:25px;
+  border-radius:10px;
+  margin-bottom:25px;
+}
+
+label{
+  display:block;
+  margin:12px 0 6px;
+  font-weight:600;
+}
+
+select{
+  width:100%;
+  padding:10px;
+  border-radius:6px;
+  border:1px solid #e5e7eb;
+  margin-bottom:15px;
+}
+
+button{
+  padding:14px 22px;
+  background:#111827;
+  color:white;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
+  font-weight:600;
+}
+
+.result{
+  margin-top:25px;
+  padding:20px;
+  background:#f3f4f6;
+  border-left:4px solid #111827;
+  border-radius:8px;
+  display:none;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Utah Relocation Decision Scorecard</h1>
+<p>
+This interactive tool helps you clarify whether renting first, buying immediately,
+or using a starter-asset strategy makes the most sense based on your situation.
+</p>
+
+<div class="section">
+
+<label>How confident are you that you will stay 5+ years?</label>
+<select id="stay">
+  <option value="1">Very Uncertain</option>
+  <option value="2">Somewhat Uncertain</option>
+  <option value="3">Neutral</option>
+  <option value="4">Likely Staying</option>
+  <option value="5">Very Likely Staying</option>
+</select>
+
+<label>How important is commute proximity?</label>
+<select id="commute">
+  <option value="1">Low</option>
+  <option value="2">Moderate</option>
+  <option value="3">Important</option>
+  <option value="4">Very Important</option>
+  <option value="5">Critical</option>
+</select>
+
+<label>How flexible is your budget?</label>
+<select id="budget">
+  <option value="1">Very Tight</option>
+  <option value="2">Tight</option>
+  <option value="3">Moderate</option>
+  <option value="4">Comfortable</option>
+  <option value="5">Very Flexible</option>
+</select>
+
+<label>How comfortable are you with home maintenance & HOA rules?</label>
+<select id="maintenance">
+  <option value="1">Not Comfortable</option>
+  <option value="2">Somewhat Uncomfortable</option>
+  <option value="3">Neutral</option>
+  <option value="4">Comfortable</option>
+  <option value="5">Very Comfortable</option>
+</select>
+
+<button onclick="calculate()">See My Suggested Strategy</button>
+
+<div id="result" class="result"></div>
+
+</div>
+
+<script>
+function calculate(){
+  let stay = parseInt(document.getElementById("stay").value);
+  let commute = parseInt(document.getElementById("commute").value);
+  let budget = parseInt(document.getElementById("budget").value);
+  let maintenance = parseInt(document.getElementById("maintenance").value);
+
+  let score = stay + budget + maintenance - commute;
+
+  let resultText = "";
+
+  if(stay <= 2){
+    resultText = "You may benefit from renting first to reduce settlement risk and preserve flexibility while learning the area.";
+  }
+  else if(stay >= 4 && budget >=3){
+    resultText = "Buying may make sense if you are confident in your timeline and location choice.";
+  }
+  else{
+    resultText = "A starter-asset strategy (modest townhome with rental flexibility) could balance ownership and optionality.";
+  }
+
+  document.getElementById("result").style.display = "block";
+  document.getElementById("result").innerHTML = "<strong>Suggested Direction:</strong><br><br>" + resultText + "<br><br><em>This tool is informational and not financial or tax advice.</em>";
+}
+</script>
+
+</body>
+</html>
