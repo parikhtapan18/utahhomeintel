@@ -112,6 +112,21 @@ or using a starter-asset strategy makes the most sense based on your situation.
 
 <div id="result" class="result"></div>
 
+<div id="capture" style="display:none; margin-top:25px; padding:20px; background:#f9fafb; border-radius:8px;">
+  <h3>Get the Utah Relocation Cheat Sheet (Free)</h3>
+  <p>Receive a 1-page structured relocation decision sheet you can print and use while evaluating areas.</p>
+
+  <form action="https://formspree.io/f/xgolrnrd" method="POST">
+    <label>Your Name</label>
+    <input type="text" name="name" required style="width:100%; padding:10px; margin-bottom:12px; border:1px solid #e5e7eb; border-radius:6px;">
+
+    <label>Email Address</label>
+    <input type="email" name="email" required style="width:100%; padding:10px; margin-bottom:12px; border:1px solid #e5e7eb; border-radius:6px;">
+
+    <button type="submit">Send Me the Cheat Sheet</button>
+  </form>
+</div>
+
 </div>
 
 <script>
@@ -137,6 +152,7 @@ function calculate(){
 
   document.getElementById("result").style.display = "block";
   document.getElementById("result").innerHTML = "<strong>Suggested Direction:</strong><br><br>" + resultText + "<br><br><em>This tool is informational and not financial or tax advice.</em>";
+  document.getElementById("capture").style.display = "block";
 }
 </script>
 
